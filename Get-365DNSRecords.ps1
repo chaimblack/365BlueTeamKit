@@ -24,7 +24,7 @@ If found, displays errors in report format.
 Get-365DNSRecords
 
 .NOTES
-Created by Chaim Black. Last updated 11/8/2021.
+Created by Chaim Black. Last updated 11/10/2021.
 Geared to running with an active connection to Office 365, this script gets DNS information for a tenant and will produce an error report based off of common issues.
 This does not require a connection to Office 365 if a domain is specified, but it will lack some information.
 
@@ -308,8 +308,6 @@ function Get-365DNSRecords {
 
     $ErrorReport |
         Export-ExcelDefault -Path $OutFile -WorkSheetName 'ErrorReport'
-
-    Get-ItemHash -Default -FilePath $OutFile
 
     if (!($NoLaunch)) {Start-Process $OutputLocation}
 
