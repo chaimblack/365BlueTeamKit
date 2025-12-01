@@ -35,7 +35,7 @@ Verifies connection to Office 365 Exchange Online, runs foreach loop on all mail
 
 .NOTES
 Created by Chaim Black on 1/8/2021.
-Last updated: 9/13/2021
+Last updated: 2/10/2025
 
 Get-365InboxRules was created to audit user inbox rules in Office 365. 
 
@@ -82,7 +82,7 @@ Function Get-365InboxRules {
     $Date = (Get-Date).toString("MM-dd-yy hh-mm-ss")
 
     if (!($path)) {
-        $Company = ((Get-MsolCompanyInformation).displayname).trim()
+        $Company = ((Get-OrganizationConfig).displayname).trim()
         $SaveLocation = "C:\PSOutput\Get-365InboxRules\$Company"
         If (!(test-path $SaveLocation)) {
             New-Item -ItemType Directory -Force -Path $SaveLocation | Out-Null
